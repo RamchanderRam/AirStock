@@ -1,0 +1,72 @@
+﻿@model AirStock.Models.JobCardViewModel
+
+<h2>Job Cards</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <style>
+            .create-vehicle-btn {
+                background-color: #3498db; /* Blue color - Change as needed */
+                margin-right: 10px; /* Adjust spacing as needed */
+            }
+
+            .create-job-card-btn {
+                background-color: #2ecc71; /* Green color - Change as needed */
+            }
+        </style>
+
+
+        <a asp-controller="SparePart" asp-action="CreateSparePart" class="btn btn-primary create-job-card-btn">Go To Create Spare Part Form</a>
+
+        <a asp-controller="JobCard" asp-action="CreateJobCard" class="btn btn-primary create-vehicle-btn">Create Job Card</a>
+
+        <thead>
+            <tr>
+                <th>Job Card Id</th>
+                <th>Description</th>
+                <th>Spare For Service</th>
+                <th>Job Card Quantity</th>
+                <th>Cost</th>
+                <th>Fitted By</th>
+                <th>Select Vehicle</th>
+                <th>Total</th>
+                <th>Date In</th>
+                <th>Date Out</th>
+                <th>Time In</th>
+                <th>Time Out</th>
+                <th>Chief Mechanic Signature</th>
+                @*<th>Action</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.JobCards)
+            {
+                <tr>
+                    <td>@product.JobCardId</td>
+                    <td>@product.BriefDescriptionOfWork</td>
+                    <td>@product.SpareForService</td>
+                    <td>@product.JobCardQuantity</td>
+                    <td>@product.Cost</td>
+                    <td>@product.FittedBy</td>
+                    <td>
+                        @Html.DropDownListFor(model => model.JobCard.VehicleId, Model.Vehicles, "Select Vehicle", new { @class = "form-control" })
+                    </td>
+                    <td>@product.Total</td>
+                    <td>@product.DateIn</td>
+                    <td>@product.DateOut</td>
+                    <td>@product.TimeIn</td>
+                    <td>@product.TimeOut</td>
+                    <td>@product.ChiefMechanicSignature</td>
+                    <td>
+
+                        <div class="btn-group" role="group">
+                           @* <!-- Add your action links or buttons here -->
+                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="#" class="btn btn-sm btn-danger">Delete</a>*@
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

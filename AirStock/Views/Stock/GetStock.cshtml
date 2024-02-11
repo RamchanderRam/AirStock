@@ -1,0 +1,26 @@
+﻿@model List<StockAdapter>
+<h2>Stock List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Stock Id</th>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Quantity</th>
+            <th>Product Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.StockId</td>
+                <td>@product.ProductId</td>
+                <td>@product.ProductName</td>
+                <td>@product.ProductQuantity</td>
+                <td>@product.ProductDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

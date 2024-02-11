@@ -1,0 +1,81 @@
+﻿@using X.PagedList.Mvc.Core
+@using X.PagedList
+@*@model X.PagedList.IPagedList<AirStock.Models.ProductAdapter>*@
+@{
+    ViewData["Title"] = "Search Results";
+}
+<h2>SparePart List</h2>
+<form>
+<div class="form-group">
+        <input type="text" id="searchInput" name="searchTerm" placeholder="Search by SparePart name">
+        @*<select name="pageSize" method="get">
+        <option value="5">5 items per page</option>
+        <option value="10">10 items per page</option>
+        <option value="20">20 items per page</option>
+        <!-- Add more options as needed -->
+        </select>*@
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+@*asp-action="Create"*@
+
+<div class="row justify-content-between mb-3">
+    <div class="col-auto">
+        <a asp-controller="SparePart" asp-action="CreateSparePart" class="btn btn-primary create-job-card-btn"> Create Spare Part Form</a>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>SparePartId  </th>
+            <th> Name</th>
+            <th> Quantity</th>
+            <th> SparePartCost </th>
+            <th> SparePartAmount </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.SparePartId </td>
+                <td>@product.Name</td>
+                <td>@product.Quantity </td>
+                <td>@product.SparePartCost  </td>
+                <td>@product.SparePartAmount  </td>
+
+                <td>
+                    <div role="group" class="w-60 btn-group">
+                        @*<a asp-controller="SparePart" asp-action="UpdateSparepart" asp-route-id="@product.SparePartId" class=" btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i>Edit</a>&nbsp;*@
+                        @*<a asp-controller="SparePart" asp-action="Delete" asp-route-id="@product.ProductId" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i>Delete</a>*@
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Vehicle" asp-action="GetVehicles" class="btn btn-lg btn-primary" style="background-color: #3498db;">Go  Vehicles List to Create Form </a>
+
+<a asp-controller="JobCard" asp-action="GetJobCards" class="btn btn-lg btn-primary" style="background-color: #27ae60;">Go To JobCards List to Create Form</a>
+
+
+
+
+<div class="pagination-container">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @if (Model.HasPreviousPage)
+    {
+        <a href="@Url.Action("GetProducts", new { page = 1 })">First</a>
+        <a href="@Url.Action("GetProducts", new { page = Model.PageNumber - 1 })">Previous</a>
+    }
+    @if (Model.HasNextPage)
+    {
+        <a href="@Url.Action("GetProducts", new { page = Model.PageNumber + 1 })">Next</a>
+        <a href="@Url.Action("GetProducts", new { page = Model.PageCount })">Last</a>
+    }
+
+</div>
+

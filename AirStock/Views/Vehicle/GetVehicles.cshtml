@@ -1,0 +1,47 @@
+﻿@model List<AirStock.Models.VehicleModel>
+
+<h2>Vehicle List</h2>
+
+
+<table class="table table-bordered table-striped">
+   <style>
+    .create-vehicle-btn {
+        background-color: #3498db; /* Blue color - Change as needed */
+        margin-right: 10px; /* Adjust spacing as needed */
+    }
+
+    .create-job-card-btn {
+        background-color: #2ecc71; /* Green color - Change as needed */
+    }
+</style>
+
+<a asp-controller="Vehicle" asp-action="Create" class="btn btn-primary create-vehicle-btn">Create Vehicle Form</a>
+
+<a asp-controller="JobCard" asp-action="CreateJobCard" class="btn btn-primary create-job-card-btn">Go To Create Job Card Form</a>
+
+    <thead>
+        <tr>
+            <th>Vehicle Name</th>
+            <th>VehicleNumber </th>
+            <th>Fleet Number</th>
+            <th>Division </th>
+            <th>DriverKm </th>
+            <th>Date Of Last Service</th>
+            <!-- Add other header columns for additional fields -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vehicle in Model)
+        {
+            <tr>
+                <td>@vehicle.VehicleName</td>
+                <td>@vehicle.VehicleNumber </td>
+                <td>@vehicle.FleetNumber</td>
+                <td>@vehicle.Division </td>
+                <td>@vehicle.DriverKm </td>
+                <td>@vehicle.DateOfLastService?.ToShortDateString()</td>
+                <!-- Add other columns for additional fields -->
+            </tr>
+        }
+    </tbody>
+</table>

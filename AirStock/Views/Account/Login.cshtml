@@ -1,0 +1,23 @@
+﻿@model UserModelAdapter
+@Html.ValidationSummary()
+
+<h2>Login</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<form method="post" asp-action="Login" asp-controller="Account">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input type="text" asp-for="Username" placeholder="Username">
+        <span asp-validation-for="Username"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PasswordHash"></label>
+        <input type="password" asp-for="PasswordHash" placeholder="Password">
+        <span asp-validation-for="PasswordHash"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>

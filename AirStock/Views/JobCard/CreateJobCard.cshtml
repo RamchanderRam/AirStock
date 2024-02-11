@@ -1,0 +1,85 @@
+﻿@model AirStock.Models.JobCardViewModel
+
+@{
+    ViewData["Title"] = "Create Job Card";
+}
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<h2>Create Job Card</h2>
+
+<form asp-action="CreateJobCard" method="post">
+    <div class="form-group">
+        <label asp-for="JobCard.BriefDescriptionOfWork"></label>
+        <input asp-for="JobCard.BriefDescriptionOfWork" class="form-control" />
+        <span asp-validation-for="JobCard.BriefDescriptionOfWork" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="JobCard.SpareForService"></label>
+        <label asp-for="JobCard.SpareForService"></label>
+        <input asp-for="JobCard.SpareForService" class="form-control" />
+        <span asp-validation-for="JobCard.SpareForService" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="JobCard.JobCardQuantity"></label>
+        <input asp-for="JobCard.JobCardQuantity" class="form-control" />
+        <span asp-validation-for="JobCard.JobCardQuantity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="JobCard.Cost"></label>
+        <input asp-for="JobCard.Cost" class="form-control" />
+        <span asp-validation-for="JobCard.Cost" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="JobCard.FittedBy"></label>
+        <input asp-for="JobCard.FittedBy" class="form-control" />
+        <span asp-validation-for="JobCard.FittedBy" class="text-danger"></span>
+    </div>
+
+    
+    <div class="form-group">
+        <label asp-for="JobCard.VehicleId" class="control-label"></label>
+        @Html.DropDownListFor(model => model.JobCard.VehicleId, Model.Vehicles, "Select Vehicle", new { @class = "form-control" })
+        <span asp-validation-for="JobCard.VehicleId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="JobCard.Total"></label>
+        <input asp-for="JobCard.Total" class="form-control" />
+        <span asp-validation-for="JobCard.Total" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="JobCard.DateIn"></label>
+        <input asp-for="JobCard.DateIn" type="date" class="form-control" />
+        <span asp-validation-for="JobCard.DateIn" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="JobCard.DateOut"></label>
+        <input asp-for="JobCard.DateOut" type="date" class="form-control" />
+        <span asp-validation-for="JobCard.DateOut" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="JobCard.TimeIn"></label>
+        <input asp-for="JobCard.TimeIn" type="date" class="form-control" />
+        <span asp-validation-for="JobCard.TimeIn" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="JobCard.TimeOut"></label>
+        <input asp-for="JobCard.TimeOut" type="date" class="form-control" />
+        <span asp-validation-for="JobCard.TimeOut" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="JobCard.ChiefMechanicSignature"></label>
+        <input asp-for="JobCard.ChiefMechanicSignature" class="form-control" />
+        <span asp-validation-for="JobCard.ChiefMechanicSignature" class="text-danger"></span>
+    </div>
+
+   
+
+    <button type="submit" class="btn btn-primary">Create</button>
+
+    <a asp-controller="JobCard" asp-action="GetJobCards" class="btn btn-lg btn-warning p-2">Back To List</a>
+
+</form>

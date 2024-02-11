@@ -1,0 +1,52 @@
+﻿@model AirStock.Models.SparePartViewModel
+
+@{
+    ViewData["Title"] = "Create Spare Part Card";
+}
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<h2>Create Spare Part Card</h2>
+
+<form asp-action="CreateSparePart" method="post">
+    <div class="form-group">
+        <label asp-for="SparePart.Name"></label>
+        <input asp-for="SparePart.Name" class="form-control" />
+        <span asp-validation-for="SparePart.Name" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="SparePart.Quantity"></label>
+        <label asp-for="SparePart.Quantity"></label>
+        <input asp-for="SparePart.Quantity" class="form-control" />
+        <span asp-validation-for="SparePart.Quantity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SparePart.SparePartCost"></label>
+        <input asp-for="SparePart.SparePartCost" class="form-control" />
+        <span asp-validation-for="SparePart.SparePartCost" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SparePart.SparePartAmount"></label>
+        <input asp-for="SparePart.SparePartAmount" class="form-control" />
+        <span asp-validation-for="SparePart.SparePartAmount" class="text-danger"></span>
+    </div>
+    
+
+    <div class="form-group">
+        <label asp-for="SparePart.JobCardId" class="control-label"></label>
+        @Html.DropDownListFor(model => model.SparePart.JobCardId, Model.JobCards, "Select JobCard", new { @class = "form-control" })
+        <span asp-validation-for="SparePart.JobCardId" class="text-danger"></span>
+    </div>
+
+   
+
+     <button type="submit" class="btn btn-primary">Create</button>
+
+    <a asp-controller="SparePart" asp-action="GetSpareParts" class="btn btn-lg btn-warning p-2">Back To List</a>
+
+   
+
+
+</form>

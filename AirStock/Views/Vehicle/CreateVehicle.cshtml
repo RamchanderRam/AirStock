@@ -1,0 +1,44 @@
+﻿@model AirStock.Models.VehicleModel
+
+<h2>Create Vehicle</h2>
+
+<form asp-action="CreateVehicle" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="VehicleName">Vehicle Name</label>
+        <input asp-for="VehicleName" class="form-control" />
+        <span asp-validation-for="VehicleName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="VehicleNumber">Vehicle Number</label>
+        <input asp-for="VehicleNumber" class="form-control" />
+        <span asp-validation-for="VehicleNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FleetNumber">Fleet Number</label>
+        <input asp-for="FleetNumber" class="form-control" />
+        <span asp-validation-for="FleetNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Division">Division Number</label>
+        <input asp-for="Division" class="form-control" />
+        <span asp-validation-for="Division" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DriverKm">Driver KM</label>
+        <input asp-for="DriverKm" class="form-control" />
+        <span asp-validation-for="DriverKm" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateOfLastService">Date Of LastService</label>
+        <input asp-for="DateOfLastService" class="form-control" />
+        <span asp-validation-for="DateOfLastService" class="text-danger"></span>
+    </div>
+    @* Add other form fields as needed *@
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <a asp-controller="Vehicle" asp-action="GetVehicles" class="btn btn-lg btn-warning p-2">Back To List</a>
+
+</form>

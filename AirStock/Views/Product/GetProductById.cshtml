@@ -1,0 +1,21 @@
+﻿@model ProductAdapter
+
+<h2>Product Details</h2>
+
+<table class="table">
+    <tr>
+        <th>Product Id:</th>
+        <td>@Model.ProductId</td>
+    </tr>
+    <tr>
+        <th>Product Name:</th>
+        <td>@Model.ProductName</td>
+    </tr>
+    <tr>
+        <th>Product Quantity:</th>
+        <td>@Model.ProductQuantity</td>
+    </tr>
+    <!-- Add more properties as needed -->
+</table>
+
+<a asp-action="GetProducts">Back to Product List</a>

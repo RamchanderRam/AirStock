@@ -1,0 +1,17 @@
+﻿@*@model ProductAdapter*@ 
+@model AirStock.Models.ProductAdapter
+
+
+<h2>Delete Product</h2>
+
+<div>
+    <p>Are you sure you want to delete this product?</p>
+    <p><strong>Product Name:</strong> @Model.ProductName</p>
+    <p><strong>Product Quantity:</strong> @Model.ProductQuantity</p>
+</div>
+
+<form method="post" asp-action="Delete" asp-route-id="@Model.ProductId">
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-controller="Product" asp-action="GetProducts" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,0 +1,38 @@
+﻿@model ProductAdapter
+
+<div class="container shadow p-5">
+    <div class="row pb-2">
+        <h2>Add Product</h2>
+    </div>
+
+    <form method="post" enctype="application/json">
+        <div asp-validation-summary="All"></div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="ProductName">Product Name </label>
+                <input type="text" class="form-control mb-3" asp-for="ProductName" placeholder="Enter Product Name">
+                <span asp-validation-for="ProductName" class=" alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ProductQuantity">Product Quantity</label>
+                <input type="text" class="form-control mb-3" asp-for="ProductQuantity" placeholder="Enter Product Quantity">
+                <span asp-validation-for="ProductQuantity" class=" alert-danger"></span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Save</button>
+
+        <a asp-controller="Product" asp-action="GetProducts" class="btn btn-lg btn-warning p-2">Back To List</a>
+    </form>
+
+</div>
+
+
+@*//for front end validations*@
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
